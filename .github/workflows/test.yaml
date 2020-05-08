@@ -75,6 +75,8 @@ jobs:
         kubectl get configmaps -n astarte-test
         kubectl get pvc -n astarte-test
         kubectl describe astarte -n astarte-test || echo "Astarte already deleted"
+        kubectl logs -n astarte-test example-astarte-vernemq-0 || echo "No logs"
+        kubectl logs -n astarte-test example-astarte-vernemq-0 --previous || echo "No logs"
         kubectl logs -n astarte-test deployment/example-astarte-flow || echo "No logs"
         kubectl logs -n astarte-test deployment/example-astarte-flow --previous || echo "No logs"
     - name: Show pod states
